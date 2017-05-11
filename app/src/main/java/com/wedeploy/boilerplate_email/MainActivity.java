@@ -6,11 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import com.wedeploy.android.Callback;
+import com.wedeploy.android.WeDeploy;
+import com.wedeploy.android.auth.TokenAuthorization;
+import com.wedeploy.android.transport.Response;
 import com.wedeploy.boilerplate_email.databinding.ActivityMainBinding;
-import com.wedeploy.sdk.Callback;
-import com.wedeploy.sdk.WeDeploy;
-import com.wedeploy.sdk.auth.TokenAuth;
-import com.wedeploy.sdk.transport.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 
 		weDeploy = new WeDeploy.Builder()
-			.auth(new TokenAuth("49488085-1ee3-4c33-888f-0a1e37d2694e"))
+			.authorization(new TokenAuthorization("49488085-1ee3-4c33-888f-0a1e37d2694e"))
 			.build();
 
 		binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
