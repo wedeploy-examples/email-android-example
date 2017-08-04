@@ -14,7 +14,7 @@ import com.wedeploy.boilerplate_email.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-	private static final String EMAIL_URL = "https://email-boilerplateemail.wedeploy.sh";
+	private static final String EMAIL_URL = "https://email-boilerplateemail.wedeploy.io";
 
 	private ActivityMainBinding binding;
 	private WeDeploy weDeploy;
