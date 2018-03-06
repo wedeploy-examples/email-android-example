@@ -14,65 +14,65 @@ import com.wedeploy.boilerplate_email.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-	private static final String EMAIL_URL = "https://email-boilerplateemail.wedeploy.io";
+  private static final String EMAIL_URL = "https://email-boilerplateemail.wedeploy.io";
 
-	private ActivityMainBinding binding;
-	private WeDeploy weDeploy;
+  private ActivityMainBinding binding;
+  private WeDeploy weDeploy;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-		weDeploy = new WeDeploy.Builder()
-			.authorization(new TokenAuthorization("5732bed5-1418-4b21-b524-5533f2d0bc2c"))
-			.build();
+    weDeploy = new WeDeploy.Builder()
+      .authorization(new TokenAuthorization("5732bed5-1418-4b21-b524-5533f2d0bc2c"))
+      .build();
 
-		binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+    binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-		binding.signInButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				String from = binding.from.getText().toString();
-				String to = binding.to.getText().toString();
-				String subject = binding.subject.getText().toString();
+    binding.signInButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        String from = binding.from.getText().toString();
+        String to = binding.to.getText().toString();
+        String subject = binding.subject.getText().toString();
 
-				if (!from.isEmpty() && !to.isEmpty() && !subject.isEmpty()) {
-					sendEmail(from, to, subject);
-				}
-				else {
-					Log.d(MainActivity.this.getClass().getSimpleName(), "You have to fill all the fields");
-				}
-			}
-		});
-	}
+        if (!from.isEmpty() && !to.isEmpty() && !subject.isEmpty()) {
+          sendEmail(from, to, subject);
+        }
+        else {
+          Log.d(MainActivity.this.getClass().getSimpleName(), "You have to fill all the fields");
+        }
+      }
+    });
+  }
 
-	private void sendEmail(String from, String to, String subject) {
-		weDeploy.email(EMAIL_URL)
-			.from(from)
-			.to(to)
-			.subject(subject)
-			.message(subject)
-			.send()
-			.execute(new Callback() {
-				@Override
-				public void onSuccess(Response response) {
-					showAlert("Success", "Email sent! Wait a little bit until it arrives :)");
-				}
+  private void sendEmail(String from, String to, String subject) {
+    weDeploy.email(EMAIL_URL)
+      .from(from)
+      .to(to)
+      .subject(subject)
+      .message(subject)
+      .send()
+      .execute(new Callback() {
+        @Override
+        public void onSuccess(Response response) {
+          showAlert("Success", "Email sent! Wait a little bit until it arrives :)");
+        }
 
-				@Override
-				public void onFailure(Exception e) {
-					showAlert("Error", "Email sending the email");
-				}
-			});
-	}
+        @Override
+        public void onFailure(Exception e) {
+          showAlert("Error", "Email sending the email");
+        }
+      });
+  }
 
-	private void showAlert(String title, String message) {
-		new AlertDialog.Builder(this)
-			.setTitle(title)
-			.setMessage(message)
-			.setPositiveButton(android.R.string.ok, null)
-			.show();
-	}
+  private void showAlert(String title, String message) {
+    new AlertDialog.Builder(this)
+      .setTitle(title)
+      .setMessage(message)
+      .setPositiveButton(android.R.string.ok, null)
+      .show();
+  }
 
 }

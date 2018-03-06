@@ -1,11 +1,11 @@
 <resources>
-	<string name="app_name">Boilerplate-email</string>
-	<string name="send_email">Send Email</string>
-	<string name="from">From</string>
-	<string name="from_hint">from@domain.com</string>
-	<string name="to">To</string>
-	<string name="to_hint">to@domain.com</string>
-	<string name="subject">Subject</string>
-	<string name="subject_hint">Hi there!</string>
-	<string name="submit">Submit</string>
+  <string name="app_name">Boilerplate-email</string>
+  <string name="send_email">Send Email</string>
+  <string name="from">From</string>
+  <string name="from_hint">from@domain.com</string>
+  <string name="to">To</string>
+  <string name="to_hint">to@domain.com</string>
+  <string name="subject">Subject</string>
+  <string name="subject_hint">Hi there!</string>
+  <string name="submit">Submit</string>
 </resources>
