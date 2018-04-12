@@ -14,7 +14,8 @@ import com.wedeploy.boilerplate_email.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-  private static final String EMAIL_URL = "https://email-boilerplateemail.wedeploy.io";
+  private static final String EMAIL_URL = "https://<email-service-id>.wedeploy.io";
+  private static final String MASTER_TOKEN = "<master-token>";
 
   private ActivityMainBinding binding;
   private WeDeploy weDeploy;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
     weDeploy = new WeDeploy.Builder()
-      .authorization(new TokenAuthorization("5732bed5-1418-4b21-b524-5533f2d0bc2c"))
+      .authorization(new TokenAuthorization(MASTER_TOKEN))
       .build();
 
     binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
